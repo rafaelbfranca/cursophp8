@@ -10,13 +10,21 @@
     <?php
         //Arquivo index, responsável por iniciar o sistema.
         echo "<h1>Arquivo index.php</h1>";
+        echo "<hr>";
         require_once "sistema/configuracao.php";
-        echo "<br>";
+        echo "<hr>";
         include "helpers.php";
-        echo "<br><br>";
+        echo "<hr>";
         echo saudacao();//Chamada da função existente no arquivo helpers.php.
-        echo "<br><br>";
-        echo resumirTexto();
+        echo "<hr>";
+        
+        $texto = 'Texto para resumir vindo de uma variável.';
+
+        echo resumirTexto($texto, 25);
+        echo "<hr>";
+
+        var_dump($texto);//Comando util para debugar objetos, pois exibe no navegador os detalhes do objeto passado como parâmetro.
+
     ?>
 </body>
 </html>
