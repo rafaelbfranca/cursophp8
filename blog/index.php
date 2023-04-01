@@ -24,7 +24,12 @@
         echo "<hr>";
 
         var_dump($texto);//Comando util para debugar objetos, pois exibe no navegador os detalhes do objeto passado como parâmetro.
+        echo "<hr>";
 
+        echo formatarValor(6000);
+        echo "<hr>";
+
+        echo contarTempo('2023-03-31 16:45:50');
     ?>
 </body>
 </html>
