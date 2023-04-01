@@ -5,7 +5,7 @@
     function saudacao():string
     {
         $hora = date('H');//Este comando está associado à configuração de timezone no arquivo configuracao.php.
-        
+        /*
         if ($hora >= 0 && $hora < 6) {
             $saudacao = 'Boa madrugada!';
         } elseif ($hora >= 6 && $hora < 12) {
@@ -17,6 +17,16 @@
         } else {
             $saudacao = 'Hora inválida.';
         }
+        */
+
+        $saudacao = match(true)
+        {
+            $hora >= 0 && $hora < 6 => 'Boa madrugada!',
+            $hora >= 6 && $hora < 12 => 'Bom dia!',
+            $hora >= 12 && $hora < 18 => 'Boa tarde!',
+            $hora >= 18 && $hora < 24 => 'Boa noite!',
+            default => 'Hora inválida.'
+        };
 
         return $saudacao;
     }
@@ -83,5 +93,46 @@
         } else {
             return $anos == 1 ? 'Há pelo menos 1 ano.' : 'Há pelo menos '.$anos.' anos';
         }
+    }
+
+    function url(string $url):string
+    {
+        //var_dump($_SERVER); faz o echo da variável global $_SERVER. Útil para identificar os nomes dos atributos que se deseja utilizar o valor.
+
+        //$servidor = filter_input(INPUT_SERVER , 'SERVER_NAME'); Essa linha foi apresentada no vídeo da aula 032 do curso para resgatar o atributo SERVER_NAME da variável global $_SERVER, mas não funcionou.
+        $servidor = $_SERVER['SERVER_NAME'];//Essa linha foi a forma encontrada que funcionou.
+        $ambiente = ($servidor == 'localhost' ? URL_DEV : URL_PRODUCAO);
+
+        if (str_starts_with($url , '/')) {
+            return $ambiente.$url;
+        }
+        return $ambiente.'/'.$url;
+    }
+
+    function limparNumero(string $numero):string
+    {
+        return preg_replace('/[^0-9]/','',$numero);
+    }
+    
+    function validarCpf(string $cpf):bool
+    {
+        $cpf = limparNumero($cpf);
+
+        if (mb_strlen($cpf) != 11 or preg_match('/(\d)\1{10}/',$cpf))
+        {
+            return false;
+        }
+
+        for ($t = 9; $t < 11; $t++)
+        { 
+            for ($d = 0, $c = 0; $c < $t; $c++) { 
+                $d += $cpf[$c]*(($t+1)-$c);
+            }
+            $d = ((10*$d)%11)%10;
+            if ($cpf[$c] != $d) {
+                return false;
+            }
+        }
+        return true;
     }
 ?>
