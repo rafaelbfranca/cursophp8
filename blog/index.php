@@ -17,6 +17,10 @@
         echo "<hr>";
         include "./Sistema/NucleoDeClasses/Mensagem.php";
         echo "<hr>";
+
+        include "./Sistema/NucleoDeClasses/Animal.php";
+        include "./Sistema/NucleoDeClasses/Cachorro.php";
+
         
         echo saudacao();//Chamada da função existente no arquivo helpers.php.
         echo "<hr>";
@@ -68,6 +72,13 @@
         $msg = new Mensagem();//Instanciando uma classe.
         var_dump($msg);
         echo "<hr>";
+
+        $bethoven = new Cachorro('2005/10/15','Bethoven');
+        $bethoven->latir();
+        echo "<hr>";
+        $bethoven->idade();
+        echo "<hr>";
+        $bethoven->comer();
 
     ?>
 </body>
