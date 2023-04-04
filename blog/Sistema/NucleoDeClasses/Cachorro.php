@@ -3,10 +3,11 @@
 class Cachorro extends Animal
 {
     public string $nome;
+    public EnumStatus $status;
     
     //O construtor da classe filha deve ter todos os atributos
     //do construtor da classe pai, mais os que forem exigitos pela classe filha.
-    public function __construct($dataNascimento,$nome)
+    public function __construct($dataNascimento,$nome)//O método construtor precisa ser public para que possa ser chamado ao instanciar a classe em outro arquivo.
     {
         $this->dataNascimento = $dataNascimento;
         $this->nome = $nome;
@@ -35,6 +36,13 @@ class Cachorro extends Animal
         echo $texto;
         
     }
+
+    //Personalizando um método da classe pai para a classe filha. Manter a assinatura e adaptar os comandos.
+    public function comer()
+    {
+        echo 'O cachorro está comendo.';
+    }
+    
 }
 
 ?>

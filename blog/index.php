@@ -20,6 +20,7 @@
 
         include "./Sistema/NucleoDeClasses/Animal.php";
         include "./Sistema/NucleoDeClasses/Cachorro.php";
+        include "./Sistema/NucleoDeClasses/EnumStatus.php";
 
         
         echo saudacao();//Chamada da função existente no arquivo helpers.php.
@@ -73,6 +74,7 @@
         var_dump($msg);
         echo "<hr>";
 
+        echo "Trabalhando com classes e herança.<br>";
         $bethoven = new Cachorro('2005/10/15','Bethoven');
         $bethoven->latir();
         echo "<hr>";
@@ -80,6 +82,52 @@
         echo "<hr>";
         $bethoven->comer();
 
+        echo "<hr>";
+        //Exemplo de uso do try/catch. Exibe o erro e permite que o codigo termine corretamente.
+        echo "Trabalhando com try/catch<br>";
+        try {
+            echo 1 / 0;
+          } catch (Throwable $e) {
+            echo $e->getMessage();
+          }
+        
+        echo "<hr>";
+        echo "Trabalhando com datas. Função strtotime().<br>";
+        echo strtotime('now');
+        echo "<hr>";
+        echo strtotime('4 May 2020');
+        echo "<hr>";
+        echo strtotime('+1 day');
+        echo "<hr>";
+        echo strtotime('+1 month');
+        echo "<hr>";
+        echo strtotime('last Sunday');
+        echo "<hr>";
+
+        echo "Trabalhando com enum.<br>";
+        try {
+            $bethoven->status = EnumStatus::DORMINDO;
+        } catch (Throwable $e) {
+            echo $e->getMessage();
+        }
+        //var_dump($bethoven->status);
+        //echo EnumStatus::DORMINDO->name;
+        //echo $bethoven->status->name;
+        echo $bethoven->nome." está ".$bethoven->status->name.".";
+        
+        echo "<hr>";
+        
+    ?>
+    <form method="POST">
+        <input type="text" name="name" />
+        <input type="submit" />
+    </form>
+    <?php
+    //A função isset() verifica se um parâmetro está definido no objeto.
+    //No exemplo abaixo verifica se o atributo name está definido em $_GET.
+        if (isset($_POST['name'])) {
+            echo '<p>The name is ' . $_POST['name'];
+        }
     ?>
 </body>
 </html>
