@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP com MySQL</title>
+    <link rel="stylesheet" href="estilos/style.css">
+</head>
+<body>
+    <main>
+        <div id="busca">
+            <h1>Resultado da busca</h1>
+            <form action="server/index.php" method="post">
+                <label for="nome">Nome:</label>
+                <input type="text" name="nome" id="inome">
+
+                <input type="submit" value="Buscar">
+                <p id="resultado"></p>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
