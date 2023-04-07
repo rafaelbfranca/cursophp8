@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Pessoa</title>
+    <link rel="stylesheet" href="../estilos/style.css">
+</head>
+<body>
+    <main>
+        <form action="../server/index.php" method="post" id="formPessoa">
+            <div>
+                <label for="firstName">Nome:</label>
+                <input type="text" name="firstName" id="idfirstName" placeholder="Primeiro nome">
+            </div>
+            <div>
+                <label for="lastName">Sobrenome:</label>
+                <input type="text" name="lastName" id="idlastName" placeholder="Último nome">
+            </div>
+            <div>
+                <label for="dataAdmin">Data de admissão:</label>
+                <input type="date" name="dataAdmin" id="iddataAdmin">
+            </div>
+
+            <fieldset>
+                <legend>Ação</legend>
+                <div>
+                    <input type="radio" name="acao" id="idincluir" value="incluir">
+                    <label for="idincluir">Incluir</label>
+                </div>
+                <div>
+                    <input type="radio" name="acao" id="ideditar" value="editar">
+                    <label for="ideditar">Editar</label>
+                </div>
+                <div>
+                    <input type="radio" name="acao" id="idexcluir" value="excluir">
+                    <label for="idexcluir">Excluir</label>
+                </div>
+            </fieldset>
+
+            <input type="submit" value="Buscar">
+            <input type="reset" value="Limpar">
+        </form>
+    </main>
+</body>
+</html>

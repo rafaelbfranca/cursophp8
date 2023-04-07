@@ -1,6 +1,6 @@
 <?php 
-    $conexao_db = mysqli_connect ('localhost:3306', 'root', 'Mysql+2018','mydb') or die ('Conexão não efetuada');//Realiza a conexão ou retorna mensagem de falha.
-
+    include ("conexao.php");
+    
     $selectAll = 'SELECT * FROM pessoas';
 
     $resultado = mysqli_query($conexao_db,$selectAll) or die ('Não foi possível executar a seleção.');//Executa a solicitação ou retorna mensagem de falha.

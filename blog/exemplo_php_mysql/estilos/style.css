@@ -5,3 +5,39 @@
     padding: 0px;
     font-family: Arial, Helvetica, sans-serif;
 }
+
+body, main{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(201, 219, 201);
+}
+
+/*Tela inicial*/
+
+#iframeInicio{
+    margin: 10px;
+    width: clamp(400px, 40vw, 500px);
+    height: clamp(400px, 20vh, 500px);
+}
+
+/*Formulário Pessoa*/
+
+#formPessoa{
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px auto;
+    width: clamp(300px, 40vw, 400px);
+    background-color: rgb(164, 204, 164);
+}
+
+#formPessoa > *{
+    margin-bottom: 10px;
+}
+
+#formPessoa > fieldset{
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid black;
+    padding: 5px;
+}

@@ -8,11 +8,11 @@
 </head>
 <body>
     <?php 
-        $nome = $_POST["nome"] ?? "Nome";
+        $nome = $_POST["firstName"] ?? "Nome";
         echo "<p>Buscou por $nome.</p>";//Usando aspas simples, não reconheceu a variável $nome.
         echo "<hr>";
 
-        require_once "./conecta.php";
+        require_once "./Classes/conecta.php";
 
         echo "<hr>";
     ?>
