@@ -1,4 +1,6 @@
 <?php
+namespace Sistema\NucleoDeClasses; 
+
 //Arquivo de classe.
 echo "Arquivo da classe Mensagem incluído com sucesso.";
 

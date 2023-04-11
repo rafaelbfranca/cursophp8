@@ -1,4 +1,5 @@
 <?php 
+namespace Sistema\NucleoDeClasses; 
 enum EnumStatus
 {
     case COMENDO;

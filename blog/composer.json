@@ -1,0 +1,25 @@
+{
+    "name": "rafael/cursophp8",
+    "description": "Curso de PHP 8",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Sistema\\": "Sistema/"
+        },
+        "files": [
+            "Sistema/configuracao.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Rafael França",
+            "email": "98033346+rafaelbfranca@users.noreply.github.com",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php":">=8.0"
+    }
+}

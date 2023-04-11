@@ -11,33 +11,51 @@
         //Arquivo index, responsável por iniciar o sistema.
         echo "<h1>Arquivo index.php</h1>";
         echo "<hr>";
-        require_once "sistema/configuracao.php";
+        
+        require 'vendor/autoload.php';
+
+        /*
+        require_once "./Sistema/configuracao.php";
         echo "<hr>";
-        include "helpers.php";
+        include "./Sistema/NucleoDeClasses/Helpers.php";
         echo "<hr>";
         include "./Sistema/NucleoDeClasses/Mensagem.php";
         echo "<hr>";
 
         include "./Sistema/NucleoDeClasses/Animal.php";
         include "./Sistema/NucleoDeClasses/Cachorro.php";
+        include "./Sistema/NucleoDeClasses/Controlador.php";
         include "./Sistema/NucleoDeClasses/EnumStatus.php";
+        */
 
+        //Após o include ou require, a classe com namespace deve ser referenciada
+        //com a palavra especial "use" seguida do seu namespace para que seus métodos
+        //possam ser chamados.
+
+        use Sistema\NucleoDeClasses\Controlador;
+        use Sistema\NucleoDeClasses\Helpers;
+        use Sistema\NucleoDeClasses\Mensagem;
+        use Sistema\NucleoDeClasses\Cachorro;
+        use Sistema\NucleoDeClasses\EnumStatus;
         
-        echo saudacao();//Chamada da função existente no arquivo helpers.php.
+        //Chamada do método saudacao() existente na classe Helpers.php.
+        echo Helpers::saudacao();
         echo "<hr>";
         
         $texto = 'Texto para resumir vindo de uma variável.';
 
-        echo resumirTexto($texto, 25);
+        //Caso o use não seja informado, será necessário incluir o caminho do namespace em cada chamada da classe.
+        //O comando echo abaixo por exemplo teria que ficar echo Sistema\NucleoDeClasses\Helpers::resumirTexto($texto, 25);
+        echo Helpers::resumirTexto($texto, 25);
         echo "<hr>";
 
         var_dump($texto);//Comando util para debugar objetos, pois exibe no navegador os detalhes do objeto passado como parâmetro.
         echo "<hr>";
 
-        echo formatarValor(6000);
+        echo Helpers::formatarValor(6000);
         echo "<hr>";
 
-        echo contarTempo('2023-03-31 16:45:50');
+        echo Helpers::contarTempo('2023-03-31 16:45:50');
         echo "<hr>";
 
         echo 'Definição de constantes no arquivo configuracao.php:'.'<br>';
@@ -49,7 +67,7 @@
         */
         echo "<hr>";
 
-        echo url('teste');
+        echo Helpers::url('teste');
         echo "<hr>";
 
         //$meuArray = array();
@@ -66,8 +84,7 @@
         echo "<hr>";
 
         $cpf = '033.530.689-61';
-        echo validarCpf($cpf).'<br>';
-        var_dump(validarCpf($cpf));
+        echo Helpers::validarCpf($cpf).'<br>';
         echo "<hr>";
 
         $msg = new Mensagem();//Instanciando uma classe.
@@ -116,7 +133,9 @@
         echo $bethoven->nome." está ".$bethoven->status->name.".";
         
         echo "<hr>";
-        
+
+        $controlador = new Controlador('Parâmetro exigido pelo construtor da classe.');
+        echo "<hr>";
     ?>
     <form method="POST">
         <input type="text" name="name" />

@@ -1,5 +1,5 @@
 <?php
-
+namespace Sistema\NucleoDeClasses; 
 class Cachorro extends Animal
 {
     public string $nome;

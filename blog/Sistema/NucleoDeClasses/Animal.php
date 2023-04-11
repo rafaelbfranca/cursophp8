@@ -1,5 +1,5 @@
 <?php 
-
+namespace Sistema\NucleoDeClasses; 
 class Animal
 {
     public string $dataNascimento;
