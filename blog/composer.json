@@ -20,6 +20,7 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "php":">=8.0"
+        "php":">=8.0",
+        "pecee/simple-router": "dev-master"
     }
 }
